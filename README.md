@@ -88,7 +88,7 @@ source .venv/bin/activate && \
 
 Not test yet pySim-prog.py
 
-## V. Manipulating SIM card by SYSMO Tools
+## VI. Manipulating SIM card by SYSMO Tools
 Rules :  </br>
 Miniscule if you want to show </br>
 Majuscule if you want to write </br>
