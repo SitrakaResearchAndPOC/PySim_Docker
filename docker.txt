@@ -1,0 +1,97 @@
+Installation docker usim
+
+docker build -t progsim:v1 .
+
+
+Mauvaise pratique pour l'utilisation de -v /dev/bus/usb:/dev/bus/usb mais utilise --device
+
+docker rm -f progsim 2> /dev/null ; \
+docker run -tid --privileged --device=/dev/bus/usb \
+-v /tmp/.X11-unix:/tmp/.X11-unix:ro \
+-v /home/user/:/home/user/.Xauthority:ro \
+-v /run/pcscd:/run/pcscd \
+--net=host --env="DISPLAY=$DISPLAY" \
+--env="LC_ALL=C.UTF-8" --env="LANG=C.UTF-8" \
+--name progsim --hostname progsim progsim:v1
+
+# docker exec -it progsim bash start_services.sh
+
+# docker exec -it progsim service dbus status
+# Start if not started 
+# docker exec -it progsim service dbus start
+# docker exec -it progsim systemctl status polkit
+# Start if not started
+# docker exec -it progsim systemctl start polkit
+# docker exec -it progsim systemctl enable pcscd
+# docker exec -it progsim systemctl start pcscd
+# docker exec -it progsim systemctl status pcscd
+# docker exec -it progsim bash -c "pcscd --foreground --debug"
+# Tape ctrl+C when it stop
+
+
+
+See the script if you want
+docker exec -it progsim cat show_services.sh
+docker exec -it progsim cat start_services.sh
+docker exec -it progsim cat /root/.bashrc
+
+Showing all service if it's run
+docker exec -it progsim bash show_services.sh
+
+
+
+Verify card reader : 
+docker exec -it progsim bash -c 'pcsc_scan'
+Tape ctrl+C when it stop
+
+
+Showing all service if it's run (should run all now)
+docker exec -it progsim bash show_services.sh
+
+
+docker exec -it progsim bash -c 'cd pysim  && \
+python3 -m venv .venv && \
+source .venv/bin/activate && \
+./pySim-read.py -p 0'
+
+
+Rules : 
+Miniscule if you want to show
+Majuscule if you want to write
+
+For help : 
+docker exec -it progsim bash -c  'cd sysmo-usim-tool/ && \
+python3 -m venv .venv && \
+source .venv/bin/activate && \
+python3 sysmo-isim-tool.sja2.py --help'
+
+ADM : 63036416
+
+For OPc :
+docker exec -it progsim bash -c  'cd sysmo-usim-tool/ && \
+python3 -m venv .venv && \
+source .venv/bin/activate && \
+python3 sysmo-isim-tool.sja2.py -a <ADM> -o'
+
+For key : 
+docker exec -it progsim bash -c  'cd sysmo-usim-tool/ && \
+python3 -m venv .venv && \
+source .venv/bin/activate && \
+python3 sysmo-isim-tool.sja2.py -a <ADM> -k'
+
+For authentication : 
+docker exec -it progsim bash -c  'cd sysmo-usim-tool/ && \
+python3 -m venv .venv && \
+source .venv/bin/activate && \
+python3 sysmo-isim-tool.sja2.py -a  <ADM>  -t'
+
+
+For all parameters : 
+docker exec -it progsim bash -c  'cd sysmo-usim-tool/ && \
+python3 -m venv .venv && \
+source .venv/bin/activate && \
+python3 sysmo-isim-tool.sja2.py -a <ADM> -t -k -o '
+
+
+
+

@@ -1,0 +1,50 @@
+ 2004  git clone https://github.com/osmocom/pysim.git
+ 2005  cd pysim/
+ 2006  sudo apt-get install --no-install-recommends     pcscd libpcsclite-dev   python3         python3-setuptools      python3-pycryptodome    python3-pyscard         python3-pip
+ 2007  pip3 install --user -r requirements.txt
+ 2008  ls
+ 2009  cat requirements.txt 
+ 2010  pip3 install --user -r requirements.txt
+ 2011  apt install python3*
+ 2012  apt install python3
+ 2013  apt install python3-pip
+ 2014  apt install python3-dev
+ 2015  pip3 install --user -r requirements.txt
+ 2016  apt install python3-xyz
+ 2017  sudo apt install -y python3-venv python3-full
+ 2018  python3 -m venv .venv
+ 2019  source .venv/bin/activate
+ 2020  # upgrade pip
+ 2021  pip install --upgrade pip
+ 2022  pip install -r requirements.txt
+ 2023  history
+
+
+
+ 2019  python3 -m venv .venv
+ 2020  source .venv/bin/activate
+ 2021  ls
+ 2022  ./pySim-read.py -p 0
+ 2023  dir
+ 2024  sudo apt install -y     pcscd     pcsc-tools     libccid     python3-pyscard     python3-pip     git     swig     libpcsclite-dev
+ 2025  sudo systemctl enable pcscd
+ 2026  pcsc_scan
+ 2027  git clone https://github.com/sysmocom/sysmo-usim-tool.git
+ 2028  cd sysmo-usim-tool/
+ 2029  ls
+ 2030  python3 sysmo-isim-tool.sja2.py -o
+ 2031  python3 sysmo-isim-tool.sja2.py --imsi
+ 2032  python3 sysmo-isim-tool.sja2.py -h
+ 2033  python3 sysmo-isim-tool.sja2.py -a 63036416 -o 
+ 2034  python3 sysmo-isim-tool.sja2.py -a 63036416 -k
+ 2035  python3 sysmo-isim-tool.sja2.py -a 63036416 
+ 2036  cd ..
+ 2037  ls
+ 2038  cd sim/
+ 2039  mv pysim/install ../
+ 2040  dir
+ 2041  mv ../install ../sim/
+ 2042  dir
+ 2043  cat install 
+ 2044  history
+
