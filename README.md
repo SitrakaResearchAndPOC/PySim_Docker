@@ -24,7 +24,7 @@ Verify by
 ```
 cat Dockerfile
 ```
-Result should be like [Dockerfile](wget https://raw.githubusercontent.com/SitrakaResearchAndPOC/PySim_Docker/refs/heads/main/Dockerfile)
+Result should be like [Dockerfile](https://raw.githubusercontent.com/SitrakaResearchAndPOC/PySim_Docker/refs/heads/main/Dockerfile)
 
 ## III. Building images
 ```
