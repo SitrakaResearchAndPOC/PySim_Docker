@@ -114,7 +114,7 @@ python3 sysmo-isim-tool.sja2.py --help'
 docker exec -it progsim bash -c  'cd sysmo-usim-tool/ && \
 python3 -m venv .venv && \
 source .venv/bin/activate && \
-python3 sysmo-isim-tool.sja2.py -a <ADM> -o'
+python3 sysmo-isim-tool.sja2.py -o  -a <ADM> '
 ```
 
 * For keys : 
@@ -122,7 +122,7 @@ python3 sysmo-isim-tool.sja2.py -a <ADM> -o'
 docker exec -it progsim bash -c  'cd sysmo-usim-tool/ && \
 python3 -m venv .venv && \
 source .venv/bin/activate && \
-python3 sysmo-isim-tool.sja2.py -a <ADM> -k'
+python3 sysmo-isim-tool.sja2.py -k  -a <ADM> '
 ```
 
 * For authentication : 
@@ -130,7 +130,7 @@ python3 sysmo-isim-tool.sja2.py -a <ADM> -k'
 docker exec -it progsim bash -c  'cd sysmo-usim-tool/ && \
 python3 -m venv .venv && \
 source .venv/bin/activate && \
-python3 sysmo-isim-tool.sja2.py -a  <ADM>  -t'
+python3 sysmo-isim-tool.sja2.py -t  -a  <ADM> '
 ```
 
 * For all parameters : 
@@ -138,6 +138,31 @@ python3 sysmo-isim-tool.sja2.py -a  <ADM>  -t'
 docker exec -it progsim bash -c  'cd sysmo-usim-tool/ && \
 python3 -m venv .venv && \
 source .venv/bin/activate && \
-python3 sysmo-isim-tool.sja2.py -a <ADM> -t -k -o '
+python3 sysmo-isim-tool.sja2.py -t -k -o -a <ADM> '
+```
+* Programming SIM
+```
+docker exec -it progsim bash -c 'cd pysim  && \
+python3 -m venv .venv && \
+source .venv/bin/activate && \
+./pySim-prog.py -p 0 --mcc 001 --mnc 01 \
+-t sysmoISIM-SJA2  --imsi 001010000000003 \
+--iccid 8988211000000012345 \
+--ki 8BAF473F2F8FD09487CCCBD7097C6862 \
+--pin-adm <ADM>'
+```
+* Programming authentication
+```
+docker exec -it progsim bash -c  'cd sysmo-usim-tool/ && \
+python3 -m venv .venv && \
+source .venv/bin/activate && \
+python3 sysmo-isim-tool.sja2.py  -T COMP128v1:COMP128v1 -a <ADM> '
+```
+* Verify all parameters
+```
+docker exec -it progsim bash -c  'cd sysmo-usim-tool/ && \
+python3 -m venv .venv && \
+source .venv/bin/activate && \
+python3 sysmo-isim-tool.sja2.py -t -k -o -a <ADM> '
 ```
 
