@@ -69,6 +69,7 @@ if pgrep -x pcscd > /dev/null; then\n\
     echo "[+] pcscd already running"\n\
 else\n\
     echo "[+] Starting pcscd..."\n\
+    service pcscd enable \n\
     service pcscd start || systemctl start pcscd || true\n\
 fi\n\
 \n\
@@ -90,6 +91,7 @@ echo "[+] Showing polkit..."\n\
 service polkit status || systemctl status polkit || true\n\
 \n\
 echo "[+] Showing pcscd..."\n\
+service pcscd enable \n\
 service pcscd status || systemctl status pcscd || true\n\
 \n\
 echo "[+] Checking services..."\n\
@@ -115,6 +117,7 @@ fi\n\
 # PCSCD\n\
 if ! pgrep -x pcscd > /dev/null; then\n\
     echo "[+] Running Pcscd" \n\
+    service pcscd enable > /dev/null 2>&1 || true\n\
     service pcscd start > /dev/null 2>&1 || true\n\
 fi\n\
 ' >> /root/.bashrc
